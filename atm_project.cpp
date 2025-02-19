@@ -116,6 +116,25 @@ Card TakejsonInfo(string filename)
     return card;
 }
 
+void UpdateJson(Card card,string number)
+{
+    remove(number.c_str());
+    ofstream card1;
+    card1.open(number.c_str());
+
+    json CardNew;
+
+    CardNew["name"] = card.name;
+    CardNew["surname"] = card.surname;
+    CardNew["number"] = card.nubmer;
+    CardNew["balance_card"] = card.balance_card;
+    CardNew["balance_deposit"] = card.balance_deposit;
+
+    card1 << CardNew << endl;
+
+    card1.close();
+}
+
 void TopUp_card()
 {
     system("cls");
@@ -132,22 +151,7 @@ void TopUp_card()
 
         card.balance_card += EnteredValue;
 
-        remove(EnteredNumber.c_str());
-
-        ofstream card1;
-        card1.open(EnteredNumber.c_str());
-
-        json CardNew;
-
-        CardNew["name"] = card.name;
-        CardNew["surname"] = card.surname;
-        CardNew["number"] = card.nubmer;
-        CardNew["balance_card"] = card.balance_card;
-        CardNew["balance_deposit"] = card.balance_deposit;
-
-        card1 << CardNew << endl;
-
-        card1.close();
+        UpdateJson(card, EnteredNumber);
 
         Sleep(500);
         cout << "Operation completed!" << endl;
@@ -179,22 +183,7 @@ void TopUp_deposit_cash()
 
         card.balance_deposit += EnteredValue;
 
-        remove(EnteredNumber.c_str());
-
-        ofstream card1;
-        card1.open(EnteredNumber.c_str());
-
-        json CardNew;
-
-        CardNew["name"] = card.name;
-        CardNew["surname"] = card.surname;
-        CardNew["number"] = card.nubmer;
-        CardNew["balance_card"] = card.balance_card;
-        CardNew["balance_deposit"] = card.balance_deposit;
-
-        card1 << CardNew << endl;
-
-        card1.close();
+        UpdateJson(card, EnteredNumber);
 
         Sleep(500);
         cout << "Operation completed!" << endl;
@@ -228,22 +217,7 @@ void TopUp_deposit_card()
             card.balance_card -= EnteredValue;
             card.balance_deposit += EnteredValue;
 
-            remove(EnteredNumber.c_str());
-
-            ofstream card1;
-            card1.open(EnteredNumber.c_str());
-
-            json CardNew;
-
-            CardNew["name"] = card.name;
-            CardNew["surname"] = card.surname;
-            CardNew["number"] = card.nubmer;
-            CardNew["balance_card"] = card.balance_card;
-            CardNew["balance_deposit"] = card.balance_deposit;
-
-            card1 << CardNew << endl;
-
-            card1.close();
+            UpdateJson(card, EnteredNumber);
 
             cout << "Completed!" << endl;
             Sleep(1000);
@@ -286,22 +260,7 @@ void cashout_card()
 
             card1.balance_card -= EnteredValue;
 
-            remove(EnteredNumber.c_str());
-
-            ofstream card2;
-            card2.open(EnteredNumber.c_str());
-
-            json CardNew;
-
-            CardNew["name"] = card1.name;
-            CardNew["surname"] = card1.surname;
-            CardNew["number"] = card1.nubmer;
-            CardNew["balance_card"] = card1.balance_card;
-            CardNew["balance_deposit"] = card1.balance_deposit;
-
-            card2 << CardNew << endl;
-
-            card2.close();
+            UpdateJson(card1, EnteredNumber);
 
             Sleep(500);
             cout << "Operation completed!" << endl;
@@ -346,22 +305,7 @@ void cashout_deposit()
 
             card1.balance_deposit -= EnteredValue;
 
-            remove(EnteredNumber.c_str());
-
-            ofstream card2;
-            card2.open(EnteredNumber.c_str());
-
-            json CardNew;
-
-            CardNew["name"] = card1.name;
-            CardNew["surname"] = card1.surname;
-            CardNew["number"] = card1.nubmer;
-            CardNew["balance_card"] = card1.balance_card;
-            CardNew["balance_deposit"] = card1.balance_deposit;
-
-            card2 << CardNew << endl;
-
-            card2.close();
+            UpdateJson(card1, EnteredNumber);
 
             Sleep(500);
             cout << "Operation completed!" << endl;
@@ -436,39 +380,11 @@ void transfer_card2card()
                         cardto.balance_card += TransferValue;
 
 
-                        remove(EnteredNumber.c_str());
+                        UpdateJson(cardfrom, EnteredNumber);
 
-                        ofstream card2;
-                        card2.open(EnteredNumber.c_str());
 
-                        json CardNewfrom;
+                        UpdateJson(cardto, TransferToNumber);
 
-                        CardNewfrom["name"] = cardfrom.name;
-                        CardNewfrom["surname"] = cardfrom.surname;
-                        CardNewfrom["number"] = cardfrom.nubmer;
-                        CardNewfrom["balance_card"] = cardfrom.balance_card;
-                        CardNewfrom["balance_deposit"] = cardfrom.balance_deposit;
-
-                        card2 << CardNewfrom << endl;
-
-                        card2.close();
-
-                        remove(TransferToNumber.c_str());
-
-                        ofstream card3;
-                        card3.open(TransferToNumber.c_str());
-
-                        json CardNewto;
-
-                        CardNewto["name"] = cardto.name;
-                        CardNewto["surname"] = cardto.surname;
-                        CardNewto["number"] = cardto.nubmer;
-                        CardNewto["balance_card"] = cardto.balance_card;
-                        CardNewto["balance_deposit"] = cardto.balance_deposit;
-
-                        card3 << CardNewto << endl;
-
-                        card3.close();
 
                         Sleep(500);
                         cout << "Operation completed!" << endl;
@@ -518,22 +434,7 @@ void transfer_deposit2card()
             card.balance_card += EnteredValue;
             card.balance_deposit -= EnteredValue;
 
-            remove(EnteredNumber.c_str());
-
-            ofstream card1;
-            card1.open(EnteredNumber.c_str());
-
-            json CardNew;
-
-            CardNew["name"] = card.name;
-            CardNew["surname"] = card.surname;
-            CardNew["number"] = card.nubmer;
-            CardNew["balance_card"] = card.balance_card;
-            CardNew["balance_deposit"] = card.balance_deposit;
-
-            card1 << CardNew << endl;
-
-            card1.close();
+            UpdateJson(card, EnteredNumber);
 
             cout << "Completed!" << endl;
             Sleep(1000);
