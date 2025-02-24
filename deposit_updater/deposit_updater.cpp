@@ -86,7 +86,7 @@ int main()
             }
 
             CardData.close();
-            Sleep(100000);
+            Sleep(1000000);
         }
         
         

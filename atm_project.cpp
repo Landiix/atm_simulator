@@ -3,7 +3,6 @@
 #include <conio.h>
 #include <nlohmann/json.hpp>
 #include <fstream> 
-#include "deposit_updater.cpp"
 
 
 using namespace std;
@@ -477,8 +476,14 @@ bool LogIn()
     ifstream card(EnteredNumber.c_str());
     if (card.is_open())
         return true;
-    else return false;
-}
+    else {
+        system("cls");
+        cout << "Invalid card number" << endl;
+        Sleep(1000);
+        load();
+        return false;
+    }
+    }
 
 void ShowAccountInfo()
 {
