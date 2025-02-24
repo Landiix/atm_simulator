@@ -522,162 +522,161 @@ void ShowMainMenu()
 
 int main()
 {
-    a();
-    cout << "asdgf";
-    //int ch = 0;
-    //int MenuItem = 0;
-    //bool exit = false, exitToMainMenu = false, exitToAccMenu = false;
+    
+    int ch = 0;
+    int MenuItem = 0;
+    bool exit = false, exitToMainMenu = false, exitToAccMenu = false;
 
-    //ShowMainMenu();
+    ShowMainMenu();
 
-    //while (!exit)
-    //{
+    while (!exit)
+    {
 
-    //    ShowMainMenu();
-    //    gotoxy(0, MenuItem);
+        ShowMainMenu();
+        gotoxy(0, MenuItem);
 
-    //    ch = _getch();
-    //    if (ch == 224)
-    //        ch = _getch();
+        ch = _getch();
+        if (ch == 224)
+            ch = _getch();
 
-    //    switch (ch)
-    //    {
-    //    case 27: exit = true; break;
-    //    case 72: MenuItem--; break;
-    //    case 80: MenuItem++; break;
-    //    case 13:
-    //        if (MenuItem == 0) // Log In
-    //        {
+        switch (ch)
+        {
+        case 27: exit = true; break;
+        case 72: MenuItem--; break;
+        case 80: MenuItem++; break;
+        case 13:
+            if (MenuItem == 0) // Log In
+            {
 
-    //            exitToMainMenu = false;
-    //            if (LogIn()) {
-    //                ShowAccountMenu();
+                exitToMainMenu = false;
+                if (LogIn()) {
+                    ShowAccountMenu();
 
-    //                while (!exitToMainMenu)
-    //                {
-    //                    ShowAccountMenu();
-    //                    gotoxy(0, MenuItem);
-    //                    ch = _getch();
-    //                    if (ch == 224)
-    //                        ch = _getch();
-    //                    switch (ch)
-    //                    {
-    //                    case 27: exitToMainMenu = true; break;
-    //                    case 72: MenuItem--; break;
-    //                    case 80: MenuItem++; break;
-    //                    case 13:
-    //                        if (MenuItem == 0) // show account info
-    //                        {
-    //                            exitToAccMenu = false;
-    //                            while (!exitToAccMenu)
-    //                            {
-    //                                ch = _getch();
-    //                                if (ch == 224)
-    //                                    ch = _getch();
-    //                                ShowAccountInfo();
-    //                                switch (ch)
-    //                                {
-    //                                case 27: exitToAccMenu = true; break;
-    //                                }
-    //                            }
-    //                            exitToAccMenu = false;
-    //                        }
-    //                        else if (MenuItem == 1) // deposit menu
-    //                        {
-    //                            exitToAccMenu = false;
-    //                            while (!exitToAccMenu)
-    //                            {
-    //                                ShowDepositMenu();
-    //                                gotoxy(0, MenuItem);
-    //                                ch = _getch();
-    //                                if (ch == 224)
-    //                                    ch = _getch();
-    //                                switch (ch)
-    //                                {
-    //                                case 27: exitToMainMenu = true; break;
-    //                                case 72: MenuItem--; break;
-    //                                case 80: MenuItem++; break;
-    //                                case 13:
-    //                                    if (MenuItem == 0) // top up deposit w cash
-    //                                    {
-    //                                        TopUp_deposit_cash();
-    //                                    }
-    //                                    else if (MenuItem == 1) // top up deposit from card
-    //                                    {
-    //                                        TopUp_deposit_card();
-    //                                    }
-    //                                    else if (MenuItem == 2) // transfer to card
-    //                                    {
-    //                                        transfer_deposit2card();
-    //                                    }
-    //                                    else if (MenuItem == 3) // cashout
-    //                                    {
-    //                                        cashout_deposit();
-    //                                    }
-    //                                    else if (MenuItem == 4) // exit to acc menu
-    //                                    {
-    //                                        exitToAccMenu = true;
-    //                                    }
-    //                                }
-    //                                if (MenuItem < 0)
-    //                                {
-    //                                    MenuItem = 0;
-    //                                }
-    //                                if (MenuItem > 4)
-    //                                {
-    //                                    MenuItem = 4;
-    //                                }
-    //                            }
-    //                        }
-    //                        else if (MenuItem == 2) // top up card 
-    //                        {
-    //                            TopUp_card();
-    //                        }
-    //                        else if (MenuItem == 3) // transfer
-    //                        {
-    //                            transfer_card2card();
-    //                        }
-    //                        else if (MenuItem == 4) // cashout
-    //                        {
-    //                            cashout_card();
-    //                        }
-    //                        else if (MenuItem == 5) // exit to main menu
-    //                        {
-    //                            exitToMainMenu = true;
-    //                        }
+                    while (!exitToMainMenu)
+                    {
+                        ShowAccountMenu();
+                        gotoxy(0, MenuItem);
+                        ch = _getch();
+                        if (ch == 224)
+                            ch = _getch();
+                        switch (ch)
+                        {
+                        case 27: exitToMainMenu = true; break;
+                        case 72: MenuItem--; break;
+                        case 80: MenuItem++; break;
+                        case 13:
+                            if (MenuItem == 0) // show account info
+                            {
+                                exitToAccMenu = false;
+                                while (!exitToAccMenu)
+                                {
+                                    ch = _getch();
+                                    if (ch == 224)
+                                        ch = _getch();
+                                    ShowAccountInfo();
+                                    switch (ch)
+                                    {
+                                    case 27: exitToAccMenu = true; break;
+                                    }
+                                }
+                                exitToAccMenu = false;
+                            }
+                            else if (MenuItem == 1) // deposit menu
+                            {
+                                exitToAccMenu = false;
+                                while (!exitToAccMenu)
+                                {
+                                    ShowDepositMenu();
+                                    gotoxy(0, MenuItem);
+                                    ch = _getch();
+                                    if (ch == 224)
+                                        ch = _getch();
+                                    switch (ch)
+                                    {
+                                    case 27: exitToMainMenu = true; break;
+                                    case 72: MenuItem--; break;
+                                    case 80: MenuItem++; break;
+                                    case 13:
+                                        if (MenuItem == 0) // top up deposit w cash
+                                        {
+                                            TopUp_deposit_cash();
+                                        }
+                                        else if (MenuItem == 1) // top up deposit from card
+                                        {
+                                            TopUp_deposit_card();
+                                        }
+                                        else if (MenuItem == 2) // transfer to card
+                                        {
+                                            transfer_deposit2card();
+                                        }
+                                        else if (MenuItem == 3) // cashout
+                                        {
+                                            cashout_deposit();
+                                        }
+                                        else if (MenuItem == 4) // exit to acc menu
+                                        {
+                                            exitToAccMenu = true;
+                                        }
+                                    }
+                                    if (MenuItem < 0)
+                                    {
+                                        MenuItem = 0;
+                                    }
+                                    if (MenuItem > 4)
+                                    {
+                                        MenuItem = 4;
+                                    }
+                                }
+                            }
+                            else if (MenuItem == 2) // top up card 
+                            {
+                                TopUp_card();
+                            }
+                            else if (MenuItem == 3) // transfer
+                            {
+                                transfer_card2card();
+                            }
+                            else if (MenuItem == 4) // cashout
+                            {
+                                cashout_card();
+                            }
+                            else if (MenuItem == 5) // exit to main menu
+                            {
+                                exitToMainMenu = true;
+                            }
 
-    //                        
-    //                    }
-    //                    if (MenuItem < 0)
-    //                    {
-    //                        MenuItem = 0;
-    //                    }
-    //                    if (MenuItem > 5)
-    //                    {
-    //                        MenuItem = 5;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //                        else if (MenuItem == 1) // Create a card
-    //                        {
-    //                            cout << "Your card number is: " << Createjsonfile();
-    //                            Sleep(5000);
+                            
+                        }
+                        if (MenuItem < 0)
+                        {
+                            MenuItem = 0;
+                        }
+                        if (MenuItem > 5)
+                        {
+                            MenuItem = 5;
+                        }
+                    }
+                }
+            }
+                            else if (MenuItem == 1) // Create a card
+                            {
+                                cout << "Your card number is: " << Createjsonfile();
+                                Sleep(5000);
 
-    //                        }
-    //                        else if (MenuItem == 2) // Exit
-    //                        {
-    //                            exit = true;
-    //                        }
-    //                        break;
-    //    }
-    //                    if (MenuItem < 0)
-    //                    {
-    //                        MenuItem = 0;
-    //                    }
-    //                    if (MenuItem > 2)
-    //                    {
-    //                        MenuItem = 2;
-    //                    }
-    //}
+                            }
+                            else if (MenuItem == 2) // Exit
+                            {
+                                exit = true;
+                            }
+                            break;
+        }
+                        if (MenuItem < 0)
+                        {
+                            MenuItem = 0;
+                        }
+                        if (MenuItem > 2)
+                        {
+                            MenuItem = 2;
+                        }
+    }
 }
