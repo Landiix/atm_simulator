@@ -27,7 +27,6 @@ public:
         surname = surname1;
     }
 
-
 };
 
 void cin_clear()
@@ -60,7 +59,6 @@ Card CreateCard()
         }
         else
             break;
-        
     }
 
     CardData.close();
@@ -363,8 +361,6 @@ void transfer_card2card()
     cin >> TransferToNumber;
     TransferToNumber = TransferToNumber + ".json";
 
-
-    
         if (TransferToNumber == EnteredNumber)
         {
             cout << "Numbers of card are the same" << endl;
@@ -377,25 +373,15 @@ void transfer_card2card()
 
             if (card.is_open())
             {
-
-
                 cout << "Enter value" << endl;
                 cin >> TransferValue;
 
                 if (TransferValue > 0)
                 {
-
-
                     Card cardto = TakejsonInfo(TransferToNumber);
 
 
                     Card cardfrom = TakejsonInfo(EnteredNumber);
-
-
-
-
-
-
 
                     if (cardfrom.balance_card >= TransferValue)
                     {
@@ -442,9 +428,6 @@ void transfer_card2card()
                 cin_clear();
             }
         }
-    
-    
-
 }
 
 void transfer_deposit2card()
