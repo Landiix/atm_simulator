@@ -150,7 +150,7 @@ void TopUp_card()
     cin >> EnteredValue;
     
     
-    if (EnteredValue > 0)
+    if (EnteredValue > 0 and EnteredValue <= 100000)
     {
         load();
 
@@ -171,7 +171,7 @@ void TopUp_card()
     }
     else
     {
-        cout << "Invalid value" << endl;
+        cout << "Invalid value , u also cant topup more than 100000 for one time" << endl;
         Sleep(1000);
         load();
         cin_clear();
@@ -188,7 +188,7 @@ void TopUp_deposit_cash()
 
     Card card = TakejsonInfo(EnteredNumber);
 
-    if (EnteredValue > 0)
+    if (EnteredValue > 0 and EnteredValue <= 100000)
     {
 
         card.balance_deposit += EnteredValue;
@@ -205,7 +205,7 @@ void TopUp_deposit_cash()
     }
     else
     {
-        cout << "Invalid value" << endl;
+        cout << "Invalid value , u also cant topup more than 100000 for one time" << endl;
         Sleep(1000);
         load();
         cin_clear();
@@ -251,6 +251,7 @@ void TopUp_deposit_card()
         cout << "Invalid value" << endl;
         Sleep(1000);
         load();
+        cin_clear();
     }
 }
 
@@ -267,7 +268,7 @@ void cashout_card()
 
     Card card1 = TakejsonInfo(EnteredNumber);
 
-    if (EnteredValue > 0)
+    if (EnteredValue > 0 and EnteredValue <= 100000)
     {
         if (card1.balance_card >= EnteredValue)
         {
@@ -295,7 +296,7 @@ void cashout_card()
     }
     else
     {
-        cout << "Invalid value" << endl;
+        cout << "Invalid value, u also cant cashout more than 100000 for one time" << endl;
         Sleep(1000);
         load();
         cin_clear();
@@ -315,7 +316,7 @@ void cashout_deposit()
 
     Card card1 = TakejsonInfo(EnteredNumber);
 
-    if (EnteredValue > 0)
+    if (EnteredValue > 0 and EnteredValue < 100000)
     {
         if (card1.balance_deposit >= EnteredValue)
         {
@@ -343,7 +344,7 @@ void cashout_deposit()
     }
     else
     {
-        cout << "Invalid value" << endl;
+        cout << "Invalid value , u also cant cashout more than 100000 for one time" << endl;
         Sleep(1000);
         load();
         cin_clear();
