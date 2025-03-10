@@ -1,4 +1,5 @@
-﻿#include <Windows.h>
+﻿#include "TXLib.h"
+#include <Windows.h>
 #include <iostream>
 #include <conio.h>
 #include <nlohmann/json.hpp>
@@ -28,6 +29,12 @@ public:
 
 
 };
+
+void cin_clear()
+{
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
 
 Card CreateCard()
 {
@@ -161,12 +168,15 @@ void TopUp_card()
         cout << "Now your card balance is " << card.balance_card << endl;
         Sleep(3000);
         load();
+        cin_clear();
+
     }
     else
     {
         cout << "Invalid value" << endl;
         Sleep(1000);
         load();
+        cin_clear();
     }
 }
 
@@ -193,12 +203,14 @@ void TopUp_deposit_cash()
         cout << "Now your deposit balance is " << card.balance_deposit << endl;
         Sleep(3000);
         load();
+        cin_clear();
     }
     else
     {
         cout << "Invalid value" << endl;
         Sleep(1000);
         load();
+        cin_clear();
     }
 }
 
@@ -226,12 +238,14 @@ void TopUp_deposit_card()
             cout << "Now your deposit balance is " << card.balance_deposit << endl;
             Sleep(1000);
             load();
+            cin_clear();
         }
         else
         {
             cout << "Not enough balance" << endl;
             Sleep(1000);
             load();
+            cin_clear();
         }
     }
     else
@@ -270,6 +284,7 @@ void cashout_card()
             cout << "Now your deposit balance is " << card1.balance_card << endl;
             Sleep(3000);
             load();
+            cin_clear();
         }
 
         else
@@ -277,6 +292,7 @@ void cashout_card()
             cout << "Not enough balance" << endl;
             Sleep(1000);
             load();
+            cin_clear();
         }
     }
     else
@@ -284,6 +300,7 @@ void cashout_card()
         cout << "Invalid value" << endl;
         Sleep(1000);
         load();
+        cin_clear();
     }
 }
 
@@ -315,6 +332,7 @@ void cashout_deposit()
             cout << "Now your deposit balance is " << card1.balance_deposit << endl;
             Sleep(3000);
             load();
+            cin_clear();
         }
 
         else
@@ -322,6 +340,7 @@ void cashout_deposit()
             cout << "Not enough balance" << endl;
             Sleep(1000);
             load();
+            cin_clear();
         }
     }
     else
@@ -329,6 +348,7 @@ void cashout_deposit()
         cout << "Invalid value" << endl;
         Sleep(1000);
         load();
+        cin_clear();
     }
 }
 
@@ -350,6 +370,7 @@ void transfer_card2card()
             cout << "Numbers of card are the same" << endl;
             Sleep(1000);
             load();
+            cin_clear();
         }
         else {
             ifstream card(TransferToNumber.c_str());
@@ -394,12 +415,14 @@ void transfer_card2card()
                         cout << "Now your card balance is " << cardfrom.balance_card << endl;
                         Sleep(3000);
                         load();
+                        cin_clear();
                     }
                     else
                     {
                         cout << "Not enough balance" << endl;
                         Sleep(1000);
                         load();
+                        cin_clear();
                     }
                 }
                 else
@@ -407,6 +430,7 @@ void transfer_card2card()
                     cout << "Invalid value" << endl;
                     Sleep(1000);
                     load();
+                    cin_clear();
                 }
 
             }
@@ -415,6 +439,7 @@ void transfer_card2card()
                 cout << "Invalid card number" << endl;
                 Sleep(1000);
                 load();
+                cin_clear();
             }
         }
     
@@ -443,12 +468,14 @@ void transfer_deposit2card()
             cout << "Now your deposit balance is " << card.balance_deposit << " and card balance is " << card.balance_card << endl;
             Sleep(3000);
             load();
+            cin_clear();
         }
         else
         {
             cout << "Not enough balance" << endl;
             Sleep(1000);
             load();
+            cin_clear();
         }
     }
     else
@@ -456,6 +483,7 @@ void transfer_deposit2card()
         cout << "Invalid value" << endl;
         Sleep(1000);
         load();
+        cin_clear();
     }
 }
 
