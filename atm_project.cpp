@@ -2,6 +2,8 @@
 //Выполнил Усманов Максим
     
 //version B
+// AND
+//version A
 
 #include "TXLib.h"
 #include <Windows.h>
