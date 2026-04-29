@@ -1,6 +1,9 @@
 ﻿//Изменения для л.р. №2
 //Выполнил Усманов Максим
     
+//version B
+// AND
+//version A
 
 
 #include "TXLib.h"
@@ -11,7 +14,7 @@
 #include <fstream> 
 
 
-using namespace std;
+using namespace std;ч
 using namespace nlohmann;
 
 
