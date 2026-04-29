@@ -361,3 +361,16 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# --- Мои настройки для Лабораторной №2 ---
+# Логи наших хуков
+commit.log
+
+# Временные файлы macOS (так как ты на MacBook)
+.DS_Store
+
+# Файлы проекта Visual Studio (выселяем их из репозитория)
+*.sln
+*.vcxproj
+*.filters
+*.user
