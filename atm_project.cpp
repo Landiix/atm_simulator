@@ -1,4 +1,9 @@
-﻿#include "TXLib.h"
+﻿//Изменения для л.р. №2
+//Выполнил Усманов Максим
+    
+
+
+#include "TXLib.h"
 #include <Windows.h>
 #include <iostream>
 #include <conio.h>
